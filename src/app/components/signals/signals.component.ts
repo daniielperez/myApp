@@ -1,9 +1,11 @@
 import { Component, Injector, OnInit, Signal, computed, effect, inject, signal, untracked } from '@angular/core';
+import { ApiRestService } from 'src/app/services/api-rest.service';
 
 @Component({
   selector: 'app-signals',
   templateUrl: './signals.component.html',
   styleUrls: ['./signals.component.css'],
+  providers:[],
   standalone: true
 })
 export class SignalsComponent implements OnInit{
@@ -12,12 +14,14 @@ export class SignalsComponent implements OnInit{
   
   public doubleCount: Signal<number> = computed(() => this.counterSignal() * 2);
   injector = inject(Injector)
+  apiRest = inject(ApiRestService)
 
   constructor(){
 
   }
   
   ngOnInit(): void {
+    console.log(this.apiRest.personajesPage);
     
     effect(()=>{
       console.log('cambio',untracked(this.counterSignal))
