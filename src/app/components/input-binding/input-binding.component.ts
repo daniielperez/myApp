@@ -10,7 +10,7 @@ export class InputBindingComponent {
   idString:string = ''
 
   @Input()
-  set id(id: string) {
+  set id(id: any) {
     this.idString = id
     // this.hero$ = this.service.getHero(heroId);
   }

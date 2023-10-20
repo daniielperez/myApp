@@ -1,0 +1,10 @@
+<form [formGroup]="form">
+    <input type="text" id="name" formControlName="name">
+    <input type="text" id="aderess" formControlName="adress">
+    <input type="text" id="apellido" formControlName="apellido">
+</form>
+<label>
+    Name:
+    <input type="text" [formControl]="name">
+</label>
+<!-- formArrayName="informacionDetalle" -->

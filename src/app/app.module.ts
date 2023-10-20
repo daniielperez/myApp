@@ -8,18 +8,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { NoFoundComponent } from './components/no-found/no-found.component';
 import { InputBindingComponent } from './components/input-binding/input-binding.component';
 import { HerenciaComponent } from './components/herencia/herencia.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignalsComponent,
     NoFoundComponent,
     InputBindingComponent,
-    HerenciaComponent
+    HerenciaComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SignalsComponent,
+    FormsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
