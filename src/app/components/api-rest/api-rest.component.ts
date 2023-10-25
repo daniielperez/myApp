@@ -17,8 +17,8 @@ export class ApiRestComponent {
   personajes!: Personaje[]
 
   constructor( private apiRest : ApiRestService ){
+
     this.getData();
-    
     // this.apiRest.getAllCharacters().subscribe((data: any) => {
     //   console.log(data);
     //   // this.personajes = data
@@ -35,6 +35,4 @@ export class ApiRestComponent {
     this.personajes = this.apiRest.filterData(e.target.value)
   }
 
-  
-  
 }

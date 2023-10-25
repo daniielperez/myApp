@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin, map } from 'rxjs';
 import { Personaje } from '../interfaces/personaje';
+import { environment } from 'src/environments/environment.development';
 
 
 @Injectable({
@@ -9,17 +10,16 @@ import { Personaje } from '../interfaces/personaje';
 })
 
 export class ApiRestService {
-  apiUrl:string = 'https://rickandmortyapi.com/api/character'
+  apiUrl:string = environment.apiUrl
   personajesPage!:Personaje[]
   constructor(private http: HttpClient) { }
 
-   getDataPage():Observable<{personajes:Personaje[],info:any}>{
-      return this.http.get<{ results: Personaje[],info:{} }>(this.apiUrl).pipe(
-        map(data => {
-          // this.personajesPage = data.results
-          return { personajes:data.results,info:data.info }
-        })
-      )
+  getDataPage():Observable<{personajes:Personaje[],info:any}>{
+    return this.http.get<{ results: Personaje[],info:{} }>(this.apiUrl).pipe(
+      map(data => {
+        return { personajes:data.results,info:data.info }
+      })
+    )
   }
 
   filterData(search:string){
